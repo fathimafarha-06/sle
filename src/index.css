@@ -1,0 +1,240 @@
+@import "tailwindcss";
+
+/* ============================================================
+   STEP LESS ELEVATORS & ESCALATORS L.L.C — DESIGN SYSTEM
+   Palette derived from the official corporate nameplate:
+   Royal Blue · Sky Blue · Corporate Slate
+   ============================================================ */
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-arabic: "Tajawal", "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+
+  /* Royal blue — primary brand */
+  --color-royal-50: #eef4ff;
+  --color-royal-100: #dbe6fe;
+  --color-royal-200: #bfd3fe;
+  --color-royal-300: #93b4fd;
+  --color-royal-400: #608ffa;
+  --color-royal-500: #3b66f3;
+  --color-royal-600: #2547e8;
+  --color-royal-700: #1d37d1;
+  --color-royal-800: #1e30a8;
+  --color-royal-900: #1e2e84;
+  --color-royal-950: #0b1140;
+
+  /* Sky blue — accents & glows */
+  --color-sky-glow: #38bdf8;
+
+  /* Corporate slate — surfaces */
+  --color-ink-950: #020617;
+  --color-ink-900: #060d24;
+  --color-ink-800: #0b1734;
+  --color-ink-700: #132449;
+  --color-ink-600: #1e3a6b;
+
+  /* Motion */
+  --ease-glide: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-cable: cubic-bezier(0.65, 0, 0.35, 1);
+
+  --animate-marquee: marquee 32s linear infinite;
+  --animate-pulse-ring: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-glow-breathe: glow-breathe 5s ease-in-out infinite;
+  --animate-elevator-hum: elevator-hum 6s ease-in-out infinite;
+  --animate-cable-sway: cable-sway 7s ease-in-out infinite;
+  --animate-scroll-hint: scroll-hint 2.2s ease-in-out infinite;
+  --animate-shine: shine 3.4s ease-in-out infinite;
+  --animate-dots: dots 1.4s steps(4, end) infinite;
+  --animate-float-y: float-y 7s ease-in-out infinite;
+  --animate-grid-drift: grid-drift 26s linear infinite;
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @keyframes pulse-ring {
+    0% { box-shadow: 0 0 0 0 rgb(239 68 68 / 0.55); }
+    70% { box-shadow: 0 0 0 12px rgb(239 68 68 / 0); }
+    100% { box-shadow: 0 0 0 0 rgb(239 68 68 / 0); }
+  }
+  @keyframes glow-breathe {
+    0%, 100% { opacity: 0.35; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.08); }
+  }
+  @keyframes elevator-hum {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+  @keyframes cable-sway {
+    0%, 100% { transform: scaleY(1); opacity: 0.5; }
+    50% { transform: scaleY(1.04); opacity: 0.9; }
+  }
+  @keyframes scroll-hint {
+    0%, 100% { transform: translateY(0); opacity: 0.6; }
+    50% { transform: translateY(10px); opacity: 1; }
+  }
+  @keyframes shine {
+    0% { transform: translateX(-140%) skewX(-18deg); }
+    55%, 100% { transform: translateX(260%) skewX(-18deg); }
+  }
+  @keyframes dots {
+    0% { content: ""; }
+    25% { content: "."; }
+    50% { content: ".."; }
+    75% { content: "..."; }
+  }
+  @keyframes float-y {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-14px); }
+  }
+  @keyframes grid-drift {
+    from { background-position: 0 0; }
+    to { background-position: 0 -160px; }
+  }
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 110px;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-ink-950);
+    color: #e2e8f0;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: rgb(37 71 232 / 0.45);
+    color: #f8fafc;
+  }
+
+  /* Sleek scrollbar */
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-track { background: var(--color-ink-950); }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #1d37d1, #0ea5e9);
+    border-radius: 999px;
+    border: 2px solid var(--color-ink-950);
+  }
+  ::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, #2547e8, #38bdf8); }
+
+  :focus-visible {
+    outline: 2px solid #38bdf8;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* ============================================================
+   GLASS + GLOW PRIMITIVES
+   ============================================================ */
+
+@utility glass {
+  background: linear-gradient(
+    135deg,
+    rgb(255 255 255 / 0.08) 0%,
+    rgb(255 255 255 / 0.03) 100%
+  );
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  border: 1px solid rgb(148 163 184 / 0.16);
+}
+
+@utility glass-strong {
+  background: linear-gradient(
+    135deg,
+    rgb(30 48 168 / 0.22) 0%,
+    rgb(11 23 52 / 0.75) 100%
+  );
+  backdrop-filter: blur(22px) saturate(180%);
+  -webkit-backdrop-filter: blur(22px) saturate(180%);
+  border: 1px solid rgb(96 143 250 / 0.25);
+}
+
+@utility glow-blue {
+  box-shadow:
+    0 0 0 1px rgb(56 189 248 / 0.14),
+    0 18px 50px -18px rgb(37 71 232 / 0.55),
+    0 0 90px -30px rgb(56 189 248 / 0.35);
+}
+
+@utility text-gradient-brand {
+  background-image: linear-gradient(92deg, #ffffff 0%, #93b4fd 42%, #38bdf8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility text-gradient-blue {
+  background-image: linear-gradient(92deg, #608ffa 0%, #38bdf8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Blueprint-style drifting grid backdrop */
+@utility bg-blueprint {
+  background-image:
+    linear-gradient(rgb(96 143 250 / 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(96 143 250 / 0.06) 1px, transparent 1px);
+  background-size: 80px 80px;
+  animation: grid-drift 26s linear infinite;
+}
+
+/* Shine sweep used on primary buttons */
+@utility btn-shine {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.btn-shine::after {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 45%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgb(255 255 255 / 0.28),
+    transparent
+  );
+  transform: translateX(-140%) skewX(-18deg);
+  animation: shine 3.4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Tilt card hover glow edge */
+@utility card-hover-lift {
+  transition:
+    transform 0.45s var(--ease-glide),
+    box-shadow 0.45s var(--ease-glide),
+    border-color 0.45s var(--ease-glide);
+  will-change: transform;
+}
+.card-hover-lift:hover {
+  transform: translateY(-8px);
+  border-color: rgb(96 143 250 / 0.45);
+  box-shadow:
+    0 24px 60px -22px rgb(37 71 232 / 0.6),
+    0 0 80px -28px rgb(56 189 248 / 0.45);
+}

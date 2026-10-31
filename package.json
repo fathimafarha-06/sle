@@ -1,0 +1,24 @@
+{
+  "name": "stepless-elevators-uae",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Step Less Elevators & Escalators L.L.C - O.P.C. | Premium corporate landing page for lift & escalator repair, AMC, modernization and 24/7 emergency services across the UAE.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "framer-motion": "^14.7.1",
+    "lucide-react": "^1.64.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "@vitejs/plugin-react": "^6.1.2",
+    "tailwindcss": "^4.3.3",
+    "vite": "^8.3.5"
+  }
+}
