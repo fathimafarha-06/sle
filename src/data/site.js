@@ -20,8 +20,8 @@ export const CONTACT = {
    * ⚠️ CLIENT TODO: replace with the official UAE mobile number.
    * Format: country code without "+" → "971XXXXXXXXX"
    */
-  whatsapp: '971500000000',
-  whatsappDisplay: '+971 50 000 0000',
+  whatsapp: '971567231106',
+  whatsappDisplay: '+971 56 723 1106',
   phone: '+971 50 000 0000',
   phoneHref: 'tel:+971500000000',
   email: 'info@steplesselevators.com',
