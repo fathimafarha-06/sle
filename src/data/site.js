@@ -34,6 +34,8 @@ export const SOCIAL = {
   instagramHandle: '@steplesselevators',
   linkedin: 'https://www.linkedin.com/company/stepless-elevators',
   linkedinHandle: 'Stepless Elevators',
+  facebook: 'https://www.facebook.com/your-facebook-page-link',
+  facebookHandle: 'Stepless Elevators',
 };
 
 /** Build a wa.me deep link with a pre-filled professional inquiry. */

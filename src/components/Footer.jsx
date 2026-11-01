@@ -1,5 +1,5 @@
 import { ArrowUp, Mail, MapPin, Phone, ShieldCheck } from 'lucide-react';
-import { Instagram, Linkedin } from './BrandIcons.jsx';
+import { Instagram, Linkedin, Facebook } from './BrandIcons.jsx';
 import { COMPANY, CONTACT, NAV_LINKS, SERVICES, SOCIAL } from '../data/site.js';
 import BrandLogo from './BrandLogo.jsx';
 
@@ -137,9 +137,18 @@ export default function Footer() {
               >
                 <Linkedin className="h-4 w-4" />
               </a>
-              <span className="ml-1 text-xs text-slate-500">
-                {SOCIAL.instagramHandle}
-              </span>
+              {/* Added Facebook Icon Link */}
+              {SOCIAL.facebook && (
+                <a
+                  href={SOCIAL.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Facebook ${SOCIAL.facebookHandle}`}
+                  className="group grid h-10 w-10 place-items-center rounded-xl border border-white/10 text-slate-400 transition-all hover:scale-105 hover:border-sky-glow/50 hover:text-sky-glow"
+                >
+                  <Facebook className="h-4 w-4" />
+                </a>
+              )}
             </div>
           </div>
         </div>

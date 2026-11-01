@@ -1,5 +1,5 @@
 import { PhoneCall, MapPin } from 'lucide-react';
-import { Instagram, Linkedin } from './BrandIcons.jsx';
+import { Instagram, Linkedin, Facebook } from './BrandIcons.jsx';
 import { CONTACT, SOCIAL } from '../data/site.js';
 
 /**
@@ -54,6 +54,17 @@ export default function TopBar() {
             >
               <Linkedin className="h-4 w-4" />
             </a>
+            {SOCIAL.facebook && (
+              <a
+                href={SOCIAL.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Facebook ${SOCIAL.facebookHandle}`}
+                className="text-slate-400 transition-all hover:scale-115 hover:text-sky-glow"
+              >
+                <Facebook className="h-4 w-4" />
+              </a>
+            )}
           </div>
         </div>
       </div>
