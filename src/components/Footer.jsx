@@ -122,9 +122,12 @@ export default function Footer() {
                 </a>
               </li>
 
+              {/* Official Office Address */}
               <li className="flex items-start gap-3 text-slate-400">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-sky-glow" />
-                <span>{CONTACT.coverage}</span>
+                <span className="text-sm leading-relaxed text-slate-300">
+                  {COMPANY.address?.full || 'Al Jaber Jewellery Building, 6th Floor, Office No.3-601, Al Hosn St, Abu Dhabi, UAE'}
+                </span>
               </li>
             </ul>
 

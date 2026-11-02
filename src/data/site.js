@@ -11,6 +11,15 @@ export const COMPANY = {
   legalSuffix: 'L.L.C - O.P.C.',
   nameAr: 'ستيب ليس للمصاعد والسلالم المتحركة – ذ.م.م - ش.ش. و',
   tagline: 'Innovate • Build • Grow',
+  address: {
+    building: 'Al Jaber Jewellery Building',
+    floor: '6th Floor',
+    office: 'Office No.3-601',
+    street: 'Al Hosn St',
+    city: 'Abu Dhabi',
+    country: 'UAE',
+    full: 'Al Jaber Jewellery Building, 6th Floor, Office No.3-601, Al Hosn St, Abu Dhabi, UAE'
+  },
   logo: '/logo.jpg',
   founder: '/founder.jpg',
 };
@@ -23,7 +32,7 @@ export const CONTACT = {
   phone2: '+971 56 723 1106',
   phone2Href: 'tel:+971567231106',
   email: 'Stepless976@gmail.com',
-  location: 'Abu Dhabi • UAE Wide Service',
+  location: COMPANY.address.full,
   coverage: 'Abu Dhabi • UAE Wide Service',
 };
 
