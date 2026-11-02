@@ -96,21 +96,32 @@ export default function Footer() {
           <div>
             <h3 className="mb-5 text-xs font-bold uppercase tracking-[0.22em] text-white">Get In Touch</h3>
             <ul className="space-y-4 text-sm">
+              {/* Dual Phone Numbers Display */}
               <li>
-                <a href={CONTACT.phoneHref} className="flex items-start gap-3 text-slate-400 transition-colors hover:text-white">
+                <div className="flex items-start gap-3 text-slate-400">
                   <Phone className="mt-0.5 h-4 w-4 shrink-0 text-sky-glow" />
-                  <span>
-                    <span className="block font-semibold text-white">{CONTACT.phone}</span>
+                  <div className="space-y-1">
+                    <a href={CONTACT.phoneHref} className="block font-semibold text-white transition-colors hover:text-sky-glow">
+                      {CONTACT.phone}
+                    </a>
+                    {CONTACT.phone2 && (
+                      <a href={CONTACT.phone2Href} className="block font-semibold text-white transition-colors hover:text-sky-glow">
+                        {CONTACT.phone2}
+                      </a>
+                    )}
                     <span className="text-xs text-slate-500">24/7 Emergency Dispatch</span>
-                  </span>
-                </a>
+                  </div>
+                </div>
               </li>
+
+              {/* Working Mailto Email Link */}
               <li>
                 <a href={`mailto:${CONTACT.email}`} className="flex items-center gap-3 text-slate-400 transition-colors hover:text-white">
                   <Mail className="h-4 w-4 shrink-0 text-sky-glow" />
                   {CONTACT.email}
                 </a>
               </li>
+
               <li className="flex items-start gap-3 text-slate-400">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-sky-glow" />
                 <span>{CONTACT.coverage}</span>
@@ -137,7 +148,6 @@ export default function Footer() {
               >
                 <Linkedin className="h-4 w-4" />
               </a>
-              {/* Added Facebook Icon Link */}
               {SOCIAL.facebook && (
                 <a
                   href={SOCIAL.facebook}

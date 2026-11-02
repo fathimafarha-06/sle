@@ -86,13 +86,30 @@ export default function LeadForm() {
       {
         icon: Phone,
         label: '24/7 Emergency Line',
-        value: CONTACT.phoneDisplay ?? CONTACT.phone,
-        href: CONTACT.phoneHref,
+        numbers: [
+          { display: CONTACT.phone, href: CONTACT.phoneHref },
+          { display: CONTACT.phone2, href: CONTACT.phone2Href },
+        ],
         highlight: true,
       },
-      { icon: MessageCircle, label: 'WhatsApp Dispatch', value: CONTACT.whatsappDisplay, href: buildWhatsAppLink('Hello Step Less Elevators, I need lift service assistance.') },
-      { icon: Mail, label: 'Email Us', value: CONTACT.email, href: `mailto:${CONTACT.email}` },
-      { icon: MapPin, label: 'Coverage', value: CONTACT.coverage, href: null },
+      {
+        icon: MessageCircle,
+        label: 'WhatsApp Dispatch',
+        numbers: [
+          { display: CONTACT.whatsappDisplay, href: buildWhatsAppLink('Hello Step Less Elevators, I need lift service assistance.') },
+          { display: '+971 52 289 7731', href: 'https://wa.me/971522897731?text=Hello%20Step%20Less%20Elevators%2C%20I%20need%20lift%20service%20assistance.' },
+        ],
+      },
+      {
+        icon: Mail,
+        label: 'Email Us',
+        numbers: [{ display: CONTACT.email, href: `mailto:${CONTACT.email}` }],
+      },
+      {
+        icon: MapPin,
+        label: 'Coverage',
+        numbers: [{ display: CONTACT.coverage, href: null }],
+      },
     ],
     []
   );
@@ -138,9 +155,9 @@ export default function LeadForm() {
             viewport={viewportOnce}
             className="space-y-4"
           >
-            {contactCards.map(({ icon: Icon, label, value, href, highlight }) => {
-              const inner = (
-                <>
+            {contactCards.map(({ icon: Icon, label, numbers, highlight }) => {
+              return (
+                <div key={label} className="glass flex items-center gap-4 rounded-2xl p-5">
                   <span
                     className={`grid h-12 w-12 shrink-0 place-items-center rounded-xl ${
                       highlight
@@ -150,27 +167,30 @@ export default function LeadForm() {
                   >
                     <Icon className="h-5 w-5 text-white" />
                   </span>
-                  <span className="min-w-0">
+                  <div className="min-w-0">
                     <span className="block text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">
                       {label}
                     </span>
-                    <span className="block break-words text-sm font-semibold text-white">{value}</span>
-                  </span>
-                </>
-              );
-              return href ? (
-                <a
-                  key={label}
-                  href={href}
-                  target={href.startsWith('http') ? '_blank' : undefined}
-                  rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  className="glass card-hover-lift flex items-center gap-4 rounded-2xl p-5"
-                >
-                  {inner}
-                </a>
-              ) : (
-                <div key={label} className="glass flex items-center gap-4 rounded-2xl p-5">
-                  {inner}
+                    <div className="mt-0.5 space-y-1">
+                      {numbers.map((num, idx) =>
+                        num.href ? (
+                          <a
+                            key={idx}
+                            href={num.href}
+                            target={num.href.startsWith('http') ? '_blank' : undefined}
+                            rel={num.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                            className="block break-words text-sm font-semibold text-white transition-colors hover:text-sky-glow"
+                          >
+                            {num.display}
+                          </a>
+                        ) : (
+                          <span key={idx} className="block break-words text-sm font-semibold text-white">
+                            {num.display}
+                          </span>
+                        )
+                      )}
+                    </div>
+                  </div>
                 </div>
               );
             })}
