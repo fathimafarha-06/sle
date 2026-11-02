@@ -16,25 +16,24 @@ export const COMPANY = {
 };
 
 export const CONTACT = {
-  /**
-   * ⚠️ CLIENT TODO: replace with the official UAE mobile number.
-   * Format: country code without "+" → "971XXXXXXXXX"
-   */
   whatsapp: '971567231106',
   whatsappDisplay: '+971 56 723 1106',
-  phone: '+971 50 000 0000',
-  phoneHref: 'tel:+971500000000',
-  email: 'info@steplesselevators.com',
+  phone: '+971 52 289 7731',
+  phoneHref: 'tel:+971522897731',
+  phone2: '+971 56 723 1106',
+  phone2Href: 'tel:+971567231106',
+  email: 'Stepless976@gmail.com',
   location: 'Abu Dhabi • UAE Wide Service',
-  coverage:'Abu Dhabi • UAE Wide Service' ,
+  coverage: 'Abu Dhabi • UAE Wide Service',
 };
+
 
 export const SOCIAL = {
   instagram: 'https://www.instagram.com/steplesselevators',
   instagramHandle: '@steplesselevators',
-  linkedin: 'https://www.linkedin.com/company/stepless-elevators',
+  linkedin: 'https://www.linkedin.com/in/stepless-elevators-8506b2309?utm_source=share_via&utm_content=profile&utm_medium=member_ios',
   linkedinHandle: 'Stepless Elevators',
-  facebook: 'https://www.facebook.com/your-facebook-page-link',
+  facebook: 'https://www.facebook.com/share/1DaS86K3gM/?mibextid=wwXIfr',
   facebookHandle: 'Stepless Elevators',
 };
 
